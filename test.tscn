@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://mafjooko5fhn"]
+
+[ext_resource type="Script" path="res://scripts/TurnSystem.cs" id="1_s3nqv"]
+[ext_resource type="Script" path="res://scripts/StateMachine.cs" id="2_m8vc1"]
+[ext_resource type="Script" path="res://scripts/turn_system_states/StandByState.cs" id="3_kjv6t"]
+[ext_resource type="Script" path="res://scripts/turn_system_states/StartRoundState.cs" id="4_nncwc"]
+[ext_resource type="PackedScene" uid="uid://l6w1gv4qch0o" path="res://player.tscn" id="5_qmehk"]
+
+[node name="TurnSystem" type="Node2D"]
+script = ExtResource("1_s3nqv")
+
+[node name="FSM" type="Node2D" parent="."]
+script = ExtResource("2_m8vc1")
+initialState = NodePath("StandBy")
+
+[node name="StandBy" type="Node2D" parent="FSM"]
+script = ExtResource("3_kjv6t")
+
+[node name="StartRound" type="Node2D" parent="FSM"]
+script = ExtResource("4_nncwc")
+
+[node name="Player1" parent="." instance=ExtResource("5_qmehk")]
+ID = 1
+
+[node name="Player2" parent="." instance=ExtResource("5_qmehk")]
+ID = 2
+
+[connection signal="StartRound" from="." to="FSM/StandBy" method="OnTurnSystemStartRound"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwgeu4nnqd3e0"]
+
+[ext_resource type="PackedScene" uid="uid://blnv50tbe4nvi" path="res://turn_system.tscn" id="1_m4av6"]
+[ext_resource type="PackedScene" uid="uid://l6w1gv4qch0o" path="res://player.tscn" id="2_r5i0a"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TurnSystem" parent="." instance=ExtResource("1_m4av6")]
+
+[node name="Player" parent="TurnSystem" instance=ExtResource("2_r5i0a")]
+
+[node name="Player2" parent="TurnSystem" instance=ExtResource("2_r5i0a")]
+
+[node name="Player3" parent="TurnSystem" instance=ExtResource("2_r5i0a")]
+
+[node name="Player4" parent="TurnSystem" instance=ExtResource("2_r5i0a")]

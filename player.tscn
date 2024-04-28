@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://l6w1gv4qch0o"]
+
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_5xnhr"]
+[ext_resource type="Script" path="res://scripts/StateMachine.cs" id="1_k0l0c"]
+[ext_resource type="Script" path="res://scripts/player_states/StartTurnState.cs" id="2_1mhub"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_5xnhr")
+
+[node name="FSM" type="Node2D" parent="."]
+script = ExtResource("1_k0l0c")
+initialState = NodePath("StartTurn")
+
+[node name="StartTurn" type="Node2D" parent="FSM"]
+script = ExtResource("2_1mhub")
+
+[node name="Move" type="Node2D" parent="FSM"]
+
+[node name="MeleeAttack" type="Node2D" parent="FSM"]
+
+[node name="RangedAttack" type="Node2D" parent="FSM"]
+
+[node name="Pray" type="Node2D" parent="FSM"]
+
+[node name="EndTurn" type="Node2D" parent="FSM"]
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
