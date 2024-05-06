@@ -1,20 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://l6w1gv4qch0o"]
+[gd_scene load_steps=10 format=3 uid="uid://l6w1gv4qch0o"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_5xnhr"]
 [ext_resource type="Script" path="res://scripts/StateMachine.cs" id="1_k0l0c"]
 [ext_resource type="Script" path="res://scripts/player_states/StartTurnState.cs" id="2_1mhub"]
+[ext_resource type="Script" path="res://scripts/player_states/IdleState.cs" id="3_fsxxa"]
+[ext_resource type="Script" path="res://scripts/player_states/MoveState.cs" id="5_jxkmh"]
+[ext_resource type="Texture2D" uid="uid://l8a62fga7wgw" path="res://sprites/swordsman.png" id="5_wje0c"]
+[ext_resource type="Texture2D" uid="uid://cs6fvs0bt3vys" path="res://sprites/select_border.png" id="6_nxhh4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2kwc"]
+size = Vector2(60, 84)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vfmit"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wje0c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="Node2D"]
+position = Vector2(348, 184)
 script = ExtResource("1_5xnhr")
+metadata/_edit_group_ = true
 
 [node name="FSM" type="Node2D" parent="."]
 script = ExtResource("1_k0l0c")
-initialState = NodePath("StartTurn")
+initialState = NodePath("Idle")
+
+[node name="Idle" type="Node2D" parent="FSM"]
+script = ExtResource("3_fsxxa")
 
 [node name="StartTurn" type="Node2D" parent="FSM"]
 script = ExtResource("2_1mhub")
 
 [node name="Move" type="Node2D" parent="FSM"]
+script = ExtResource("5_jxkmh")
 
 [node name="MeleeAttack" type="Node2D" parent="FSM"]
 
@@ -24,8 +48,15 @@ script = ExtResource("2_1mhub")
 
 [node name="EndTurn" type="Node2D" parent="FSM"]
 
-[node name="PlayerSprite" type="Sprite2D" parent="."]
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_e2kwc")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.03, 0.03)
+sprite_frames = SubResource("SpriteFrames_vfmit")
+
+[node name="SelectionBorderIndicator" type="Sprite2D" parent="."]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("6_nxhh4")

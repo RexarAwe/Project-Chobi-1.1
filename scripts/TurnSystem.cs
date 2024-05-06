@@ -6,9 +6,12 @@ public partial class TurnSystem : Node2D
 {
     public List<Player> players = new List<Player>();
     private StateMachine FSM;
+    public int current_player_idx { get; set; }
+    public Player current_player { get; set; }
 
     // signals
     [Signal] public delegate void StartRoundEventHandler();
+    [Signal] public delegate void MoveActionSelectedEventHandler();
 
     public override void _Ready()
 	{
@@ -39,5 +42,11 @@ public partial class TurnSystem : Node2D
         }
 
         GD.Print("players.Count: " + players.Count);
+    }
+
+    private void OnHUDMoveActionSelected() // do i need this to send to the player state eventually?
+    {
+        GD.Print("OnHUDMoveActionSelected");
+        EmitSignal(SignalName.MoveActionSelected);
     }
 }

@@ -9,7 +9,7 @@ public partial class StandByState : State
     {
         // Start Round (check for all players, generate queue of randomized turn order, go to the first player!)
         GD.Print("Entering Turn System StandByState");
-        GD.Print("Parent Name: " + fsm.parent.Name);
+        GD.Print("Parent Name: " + turn_system.Name);
     }
 
     public override void Exit()

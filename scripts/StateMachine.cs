@@ -12,7 +12,8 @@ public partial class StateMachine : Node
     
     public override void _Ready()
 	{
-        parent = GetParent(); // referene to parent object to use public variables
+        parent = GetParent(); // reference to parent object to use public variables
+
         _states = new Dictionary<string, State>();
         foreach (Node node in GetChildren())
         {

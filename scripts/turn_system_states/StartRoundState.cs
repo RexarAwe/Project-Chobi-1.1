@@ -14,9 +14,12 @@ public partial class StartRoundState : State
         GD.Print("Entering Turn System StartRoundState");
 
         // Randomizing turn order
+
         CheckPlayers();
         ShufflePlayersList();
         CheckPlayers();
+
+        fsm.TransitionTo("PlayTurns");
     }
 
     public override void Exit()
@@ -27,7 +30,7 @@ public partial class StartRoundState : State
     public override void Ready()
     {
         GD.Print("Turn System StartRoundState Ready");
-        turn_system = (TurnSystem)fsm.parent;
+        turn_system = (TurnSystem)fsm.parent; // this is not the correct reference either
     }
 
     //public virtual void Update(float delta) { }

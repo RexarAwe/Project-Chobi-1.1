@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://blnv50tbe4nvi"]
+[gd_scene load_steps=6 format=3 uid="uid://blnv50tbe4nvi"]
 
 [ext_resource type="Script" path="res://scripts/TurnSystem.cs" id="1_2wwy5"]
 [ext_resource type="Script" path="res://scripts/StateMachine.cs" id="1_tb0w6"]
 [ext_resource type="Script" path="res://scripts/turn_system_states/StartRoundState.cs" id="2_5l35j"]
 [ext_resource type="Script" path="res://scripts/turn_system_states/StandByState.cs" id="3_78ltk"]
+[ext_resource type="Script" path="res://scripts/turn_system_states/PlayTurnsState.cs" id="5_1e74f"]
 
 [node name="TurnSystem" type="Node2D"]
 script = ExtResource("1_2wwy5")
@@ -17,5 +18,8 @@ script = ExtResource("3_78ltk")
 
 [node name="StartRound" type="Node2D" parent="FSM"]
 script = ExtResource("2_5l35j")
+
+[node name="PlayTurns" type="Node2D" parent="FSM"]
+script = ExtResource("5_1e74f")
 
 [connection signal="StartRound" from="." to="FSM/StandBy" method="OnTurnSystemStartRound"]
