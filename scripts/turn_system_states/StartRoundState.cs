@@ -24,12 +24,12 @@ public partial class StartRoundState : State
 
     public override void Exit()
     {
-        GD.Print("Exiting Turn System StartRoundState");
+        //GD.Print("Exiting Turn System StartRoundState");
     }
 
     public override void Ready()
     {
-        GD.Print("Turn System StartRoundState Ready");
+        //GD.Print("Turn System StartRoundState Ready");
         turn_system = (TurnSystem)fsm.parent; // this is not the correct reference either
     }
 

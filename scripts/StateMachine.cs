@@ -19,7 +19,7 @@ public partial class StateMachine : Node
         {
             if (node is State s)
             {
-                GD.Print(node.Name);
+                //GD.Print(node.Name);
                 _states[node.Name] = s;
                 s.fsm = this;
                 s.Ready();
@@ -50,7 +50,10 @@ public partial class StateMachine : Node
     public void TransitionTo(string key)
     {
         if (!_states.ContainsKey(key) || _states[key] == _currentState)
+        {
+            GD.Print("Invalid state: " + key);
             return;
+        }  
         _currentState.Exit();
         _currentState = _states[key];
         _currentState.Enter();

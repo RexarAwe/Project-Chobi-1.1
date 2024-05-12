@@ -13,13 +13,13 @@ public partial class MoveState : State
 
     public override void Exit()
     {
-        GD.Print("Exiting Player" + " " + player.ID + " MoveState");
+        //GD.Print("Exiting Player" + " " + player.ID + " MoveState");
     }
 
     public override void Ready()
     {
         player = (Player)fsm.parent;
-        GD.Print("Player" + " " + player.ID + " MoveState Ready");
+        //GD.Print("Player" + " " + player.ID + " MoveState Ready");
     }
 
     //public override void Update(float delta)

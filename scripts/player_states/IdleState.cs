@@ -14,13 +14,13 @@ public partial class IdleState : State
 
     public override void Exit()
     {
-        GD.Print("Exiting Player" + " " + player.ID + " IdleState");
+        //GD.Print("Exiting Player" + " " + player.ID + " IdleState");
     }
 
     public override void Ready()
     {
         player = (Player)fsm.parent;
-        GD.Print("Player" + " " + player.ID + " IdleState Ready");
+        //GD.Print("Player" + " " + player.ID + " IdleState Ready");
     }
 
     public override void Update(float delta) 

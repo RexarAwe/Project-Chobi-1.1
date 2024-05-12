@@ -17,13 +17,13 @@ public partial class StartTurnState : State
 
     public override void Exit()
     {
-        GD.Print("Exiting Player" + " " + player.ID + " StartTurnState");
+        //GD.Print("Exiting Player" + " " + player.ID + " StartTurnState");
     }
 
     public override void Ready()
     {
         player = (Player)fsm.parent;
-        GD.Print("Player" + " " + player.ID + " StartTurnState Ready");
+        //GD.Print("Player" + " " + player.ID + " StartTurnState Ready");
     }
 
     //public override void Update(float delta)
@@ -40,10 +40,10 @@ public partial class StartTurnState : State
     {
         GD.Print("Move");
 
-        if (player.Playing)
-        {
-            fsm.TransitionTo("Move"); // create a state for this
-        }
+        //if (player.Playing)
+        //{
+        //    fsm.TransitionTo("Move"); // create a state for this
+        //}
 
         //moving = true;
 

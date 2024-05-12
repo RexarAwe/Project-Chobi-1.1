@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://l6w1gv4qch0o"]
+[gd_scene load_steps=11 format=3 uid="uid://l6w1gv4qch0o"]
 
 [ext_resource type="Script" path="res://scripts/Player.cs" id="1_5xnhr"]
 [ext_resource type="Script" path="res://scripts/StateMachine.cs" id="1_k0l0c"]
 [ext_resource type="Script" path="res://scripts/player_states/StartTurnState.cs" id="2_1mhub"]
+[ext_resource type="PackedScene" uid="uid://b2ebty8yhnduc" path="res://hud.tscn" id="2_kq8h4"]
 [ext_resource type="Script" path="res://scripts/player_states/IdleState.cs" id="3_fsxxa"]
 [ext_resource type="Script" path="res://scripts/player_states/MoveState.cs" id="5_jxkmh"]
 [ext_resource type="Texture2D" uid="uid://l8a62fga7wgw" path="res://sprites/swordsman.png" id="5_wje0c"]
@@ -47,6 +48,8 @@ script = ExtResource("5_jxkmh")
 [node name="Pray" type="Node2D" parent="FSM"]
 
 [node name="EndTurn" type="Node2D" parent="FSM"]
+
+[node name="HUD" parent="." instance=ExtResource("2_kq8h4")]
 
 [node name="Area2D" type="Area2D" parent="."]
 

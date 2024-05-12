@@ -14,12 +14,12 @@ public partial class StandByState : State
 
     public override void Exit()
     {
-        GD.Print("Exiting Turn System StandByState");
+        //GD.Print("Exiting Turn System StandByState");
     }
 
     public override void Ready()
     {
-        GD.Print("Turn System StandByState Ready");
+        //GD.Print("Turn System StandByState Ready");
         turn_system = (TurnSystem)fsm.parent;
     }
 
