@@ -15,6 +15,7 @@ public partial class PlayTurnsState : State
         turn_system.current_player = turn_system.players[turn_system.current_player_idx]; 
         GD.Print("current player: " + turn_system.current_player.ID);
         turn_system.current_player.Playing = true;
+        turn_system.current_player.hud.Visible = true;
         //turn_system.players[current_player_idx].Playing = true;
 
         // go through each player's fsm

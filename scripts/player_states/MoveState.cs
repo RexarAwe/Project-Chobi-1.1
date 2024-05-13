@@ -9,6 +9,8 @@ public partial class MoveState : State
         // Start Round (check for all players, generate queue of randomized turn order, go to the first player!)
         GD.Print("Entering Player" + " " + player.ID + " MoveState");
 
+        // perform the move action stuff here
+
     }
 
     public override void Exit()
@@ -31,4 +33,28 @@ public partial class MoveState : State
 
     //    }
     //}
+
+    public void Move()
+    {
+        GD.Print("Move");
+
+        //GD.Print("MOVE!");
+
+        // define the movement range tile
+        int atlus_source_id = 2;
+        Vector2I atlus_coord = new Vector2I(0, 0);
+        int alternative_tile = 0;
+
+        //// reset the movement tiles layer (1)
+        //TileMap.ClearLayer(1);
+
+        //// MoveRange
+        ////allowed_move_positions = MoveRange();
+        //allowed_move_positions = MovePotential(current_player.TilePosition, current_player.Speed);
+        //for (int i = 0; i < allowed_move_positions.Count; i++)
+        //{
+        //    //GD.Print("  " + allowed_move_positions[i]);
+        //    TileMap.SetCell(1, allowed_move_positions[i], atlus_source_id, atlus_coord, alternative_tile);
+        //}
+    }
 }

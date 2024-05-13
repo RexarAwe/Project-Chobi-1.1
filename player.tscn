@@ -63,3 +63,5 @@ sprite_frames = SubResource("SpriteFrames_vfmit")
 [node name="SelectionBorderIndicator" type="Sprite2D" parent="."]
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("6_nxhh4")
+
+[connection signal="MoveActionSelected" from="HUD" to="FSM/StartTurn" method="Move"]

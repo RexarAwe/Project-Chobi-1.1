@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwgeu4nnqd3e0"]
+[gd_scene load_steps=5 format=3 uid="uid://dwgeu4nnqd3e0"]
 
 [ext_resource type="PackedScene" uid="uid://blnv50tbe4nvi" path="res://turn_system.tscn" id="1_m4av6"]
 [ext_resource type="PackedScene" uid="uid://d4imqu75qyqjt" path="res://tile_map.tscn" id="1_rbfcf"]
 [ext_resource type="Script" path="res://Match.cs" id="1_xd4h4"]
 [ext_resource type="PackedScene" uid="uid://l6w1gv4qch0o" path="res://player.tscn" id="2_r5i0a"]
-[ext_resource type="PackedScene" uid="uid://b2ebty8yhnduc" path="res://hud.tscn" id="3_l7e66"]
 
 [node name="Match" type="Node2D"]
 script = ExtResource("1_xd4h4")
@@ -13,7 +12,6 @@ script = ExtResource("1_xd4h4")
 position = Vector2(0, 10)
 
 [node name="TileMap" parent="TurnSystem" instance=ExtResource("1_rbfcf")]
-position = Vector2(43, -42)
 
 [node name="Player1" parent="TurnSystem" instance=ExtResource("2_r5i0a")]
 position = Vector2(294, 341)
@@ -23,6 +21,5 @@ ID = 1
 position = Vector2(777, 365)
 ID = 2
 
-[node name="HUD" parent="." instance=ExtResource("3_l7e66")]
-
-[connection signal="MoveActionSelected" from="HUD" to="TurnSystem" method="OnHUDMoveActionSelected"]
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(578, 325)

@@ -6,6 +6,7 @@ public partial class TurnSystem : Node2D
 {
     public List<Player> players = new List<Player>();
     private StateMachine FSM;
+    public TileMap tilemap;
     public int current_player_idx { get; set; }
     public Player current_player { get; set; }
 
@@ -17,10 +18,11 @@ public partial class TurnSystem : Node2D
 
     public override void _Ready()
 	{
-        CollectPlayers();
         FSM = GetNode<StateMachine>("FSM");
+        tilemap = GetNode<TileMap>("TileMap");
 
-        // get tilemap here
+        CollectPlayers();
+        PreparePlayers();
 
         GD.Print("Emitting Signal: StartRound");
         EmitSignal(SignalName.StartRound);
@@ -48,11 +50,17 @@ public partial class TurnSystem : Node2D
         GD.Print("players.Count: " + players.Count);
     }
 
-    private void OnHUDMoveActionSelected() // do i need this to send to the player state eventually?
+    private void PreparePlayers()
     {
-        GD.Print("OnHUDMoveActionSelected");
-        //EmitSignal(SignalName.MoveActionSelected);
-        GD.Print("current player ID: " + current_player.ID);
-        current_player.TransitionEvent("Move");
+        foreach (Player player in players)
+        {
+            var map_position = tilemap.LocalToMap(player.Position);
+            var centered_position = tilemap.MapToLocal(map_position);
+
+            // center the position to the tilemap
+            player.Position = centered_position;
+            player.TilePosition = tilemap.LocalToMap(player.Position);
+            player.TileData = tilemap.GetCellTileData(0, player.TilePosition);
+        }
     }
 }
