@@ -51,7 +51,7 @@ public partial class StateMachine : Node
     {
         if (!_states.ContainsKey(key) || _states[key] == _currentState)
         {
-            GD.Print("Invalid state: " + key);
+            GD.Print("Invalid state transition: " + key);
             return;
         }  
         _currentState.Exit();
